@@ -10,6 +10,9 @@ public class Equipo {
         this.equipo = equipo;
         this.anyoFundacion = anyoFundacion;
     }
+    public void addJugador(Jugador jugador) {
+        jugadores.add(jugador);
+    }
 
     public String getEquipo() {
         return equipo;
@@ -38,7 +41,7 @@ public class Equipo {
     @Override
     public String toString() {
         return getClass().getName() +
-                "equipo='" + equipo + '\'' +
+                " equipo='" + equipo + '\'' +
                 ", anyoFundacion=" + anyoFundacion +
                 ", jugadores=" + jugadores +
                 '}';

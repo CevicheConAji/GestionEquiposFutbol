@@ -48,7 +48,7 @@ public class Jugador {
     @Override
     public String toString() {
         return getClass().getName() +
-                "nombre='" + nombre + '\'' +
+                " nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
                 ", goles=" + goles +
                 ", edad=" + edad +
