@@ -6,6 +6,7 @@ public class Equipo {
     private String equipo;
     private int anyoFundacion;
     private LinkedList<Jugador> jugadores = new LinkedList<Jugador>();
+
     public Equipo(String equipo, int anyoFundacion) {
         this.equipo = equipo;
         this.anyoFundacion = anyoFundacion;

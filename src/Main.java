@@ -1,7 +1,8 @@
+import Exception.*;
 import Models.Equipo;
 import Models.Jugador;
 import Models.Liga;
-import Exception.*;
+
 import java.util.LinkedList;
 /**
  * @author Piero Zavala
@@ -11,22 +12,41 @@ public class Main {
 
     public static void main(String[] args) {
         LinkedList<Liga> Ligas = crearLiga();
-        String nombreEquipo= "Real Madrid";
-        LinkedList<Jugador> jugadors;
+        LinkedList<Jugador> listaJugadoresMayorNumeroGoles;
+        String nombreEquipo = "Real Madrid";
+        String nombreJugador = "Lionel";
+        LinkedList<Jugador> listaJugadoresPorNombreEquipo;
+
         //Recorre la lista de liga
         try
         {
+            System.out.print("Jugador con mas Goles:");
             for(Liga liga : Ligas)
             {
                 //Metodo de liga que recorre la lista de equipos y crea una lista de jugadores por nombre de equipo.
-                jugadors = liga.listaJugadoresPorNombreEquipo(nombreEquipo);
+                listaJugadoresPorNombreEquipo = liga.jugadoresPorNombreEquipo(nombreEquipo);
 
-                System.out.println(nombreEquipo +" ["+jugadors+"]");
+                System.out.println(nombreEquipo +" ["+listaJugadoresPorNombreEquipo+"]");
             }
         }catch (TeamNotFoundException ex) {
-            System.out.println("No se encuentra el equipo "+ex.getTeamName());
+            System.err.println("No se encuentra el equipo "+ex.getTeamName());
         }
 
+        for (Liga liga : Ligas) {
+            listaJugadoresMayorNumeroGoles = liga.jugadoresConMasGoles();
+            System.out.println(listaJugadoresMayorNumeroGoles);
+        }
+
+        try {
+            for (Liga liga : Ligas) {
+                liga.printJugadoresPorNombreEquipo_NombreJugador(nombreEquipo,nombreJugador);
+            }
+
+        }catch (TeamNotFoundException et){
+            System.err.println("No se encuentra el equipo "+et.getTeamName());
+        } catch (PlayerNotFoundException e) {
+            System.err.println("No se encuentra el jugador "+e.getPlayerName()+" en el "+nombreEquipo);
+        }
 
     }
     public static LinkedList<Liga> crearLiga(){
@@ -38,12 +58,12 @@ public class Main {
         Equipo e2 = new Equipo("Real Madrid",18001);
 
         Jugador j1E1 = new Jugador("Pepe","Loco",2,42);
-        Jugador j2E1 = new Jugador("Leonel","Messi",20,45);
-        Jugador j3E1 = new Jugador("Kilian","Mbape",18,30);
+        Jugador j2E1 = new Jugador("Lionel","Messi",20,45);
+        Jugador j3E1 = new Jugador("Kylian","Mbappe",18,30);
 
         Jugador j1E2 = new Jugador("Sonic","Erizo",4,20);
         Jugador j2E2 = new Jugador("Mario","Bros",10,23);
-        Jugador j3E2 = new Jugador("Luigi","Bros",15,23);
+        Jugador j3E2 = new Jugador("Luigi", "Bros", 20, 23);
 
         l.addEquipo(e1);
         l.addEquipo(e2);
