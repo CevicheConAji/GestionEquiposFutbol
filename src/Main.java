@@ -20,7 +20,6 @@ public class Main {
         //Recorre la lista de liga
         try
         {
-            System.out.print("Jugador con mas Goles:");
             for(Liga liga : Ligas)
             {
                 //Metodo de liga que recorre la lista de equipos y crea una lista de jugadores por nombre de equipo.
@@ -31,7 +30,7 @@ public class Main {
         }catch (TeamNotFoundException ex) {
             System.err.println("No se encuentra el equipo "+ex.getTeamName());
         }
-
+        System.out.print("Jugador con mas Goles: ");
         for (Liga liga : Ligas) {
             listaJugadoresMayorNumeroGoles = liga.jugadoresConMasGoles();
             System.out.println(listaJugadoresMayorNumeroGoles);
