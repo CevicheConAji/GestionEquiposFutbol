@@ -3,24 +3,24 @@ package Models;
 import java.util.LinkedList;
 
 public class Equipo {
-    private String equipo;
+    private String nombreEquipo;
     private int anyoFundacion;
     private LinkedList<Jugador> jugadores = new LinkedList<Jugador>();
 
-    public Equipo(String equipo, int anyoFundacion) {
-        this.equipo = equipo;
+    public Equipo(String nombreEquipo, int anyoFundacion) {
+        this.nombreEquipo = nombreEquipo;
         this.anyoFundacion = anyoFundacion;
     }
     public void addJugador(Jugador jugador) {
         jugadores.add(jugador);
     }
 
-    public String getEquipo() {
-        return equipo;
+    public String getNombreEquipo() {
+        return nombreEquipo;
     }
 
-    public void setEquipo(String equipo) {
-        this.equipo = equipo;
+    public void setNombreEquipo(String nombreEquipo) {
+        this.nombreEquipo = nombreEquipo;
     }
 
     public int getAnyoFundacion() {
@@ -42,7 +42,7 @@ public class Equipo {
     @Override
     public String toString() {
         return getClass().getName() +
-                " equipo='" + equipo + '\'' +
+                " equipo='" + nombreEquipo + '\'' +
                 ", anyoFundacion=" + anyoFundacion +
                 ", jugadores=" + jugadores +
                 '}';

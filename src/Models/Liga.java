@@ -61,7 +61,7 @@ public class Liga implements ILeague {
     public LinkedList<Jugador> jugadoresPorNombreEquipo(String nombreEquipo) throws TeamNotFoundException {
         LinkedList<Jugador> jugadores = null;
         for (Equipo equipo : this.equipos) {
-            if (equipo.getEquipo().equals(nombreEquipo))
+            if (equipo.getNombreEquipo().equals(nombreEquipo))
                 jugadores = equipo.getJugadores();
         }
 
@@ -96,7 +96,7 @@ public class Liga implements ILeague {
     public void printJugadoresPorNombreEquipo_NombreJugador(String nombreEquipo, String nombreJugador) throws TeamNotFoundException, PlayerNotFoundException {
 
         for (Equipo equipo : this.equipos) {
-            if (equipo.getEquipo().equals(nombreEquipo)) {
+            if (equipo.getNombreEquipo().equals(nombreEquipo)) {
                 for (Jugador jugador : equipo.getJugadores()) {
                     if (jugador.getNombre().equals(nombreJugador)) {
                         System.out.println(jugador);
